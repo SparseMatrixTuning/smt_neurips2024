@@ -260,7 +260,6 @@ def get_optimizer_sparse_grouped_parameters(
 
 def freeze_unselected_matrix_layer(model, select_parameters, select_attention_parameters, mixture = False):
     # selected_parameters: (module_name, layer_number, head_number)
-    # model = convert_selected_sau_to_linear_layer(model, select_parameters, exclude)
     pattern = re.compile(r'model\.layers\.(\d+)\.')
     for name, param in model.named_parameters():
         if mixture:
